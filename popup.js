@@ -1,3 +1,9 @@
+/**
+ * 지금은 안씀
+ * popup은 필요할 때 따로 개발하는 걸로
+ */
+
+
 let changeColor = document.getElementById("changeColor");
 
 chrome.storage.sync.get("color", ({ color }) => {
@@ -7,7 +13,6 @@ chrome.storage.sync.get("color", ({ color }) => {
 // When the button is clicked, inject setPageBackgroundColor into current page
 changeColor.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     function: setPageBackgroundColor,
